@@ -47,7 +47,8 @@ lib/
 ## 🖼 Screenshots
 <img width="677" height="347" alt="Screenshot 2026-01-19 064230" src="https://github.com/user-attachments/assets/000f3681-12ec-429d-b138-8e06cdd45bfe" />
 
-![Uploading Screenshot 2026-01-19 064354.png…]()
+<img width="676" height="346" alt="Screenshot 2026-01-19 064354" src="https://github.com/user-attachments/assets/2e6a583f-1e23-44b9-bec3-89cd21ccc3f8" />
+
 
 
 ## 🔧 Setup & Installation
@@ -65,5 +66,6 @@ lib/
 ## 👨‍💻 Developed By
 
 Mostafa Qwider
+
 
 
