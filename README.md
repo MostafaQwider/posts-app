@@ -46,7 +46,6 @@ lib/
 ```
 ## 🖼 Screenshots
 ![Screenshot_٢٠٢٦٠١١٩-٠٧٠٩٥٤](https://github.com/user-attachments/assets/1a3ccc4f-0f56-4194-a220-504b842dae12)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٠٠٧](https://github.com/user-attachments/assets/3aa717b7-03e6-4328-9cf6-b15a0922c9ea)
 ![Screenshot_٢٠٢٦٠١١٩-٠٧١٤٢٠](https://github.com/user-attachments/assets/bf988174-e94f-4fd5-9fc9-22d6a2be3cd8)
 ![Screenshot_٢٠٢٦٠١١٩-٠٧١٤٣٨](https://github.com/user-attachments/assets/3a06b2e0-1d1b-440b-99ae-3e3bf1c4f75e)
 ![Screenshot_٢٠٢٦٠١١٩-٠٧١٤٤٢](https://github.com/user-attachments/assets/676f4c20-48a4-4810-89ac-abc55c8643e8)
@@ -70,3 +69,4 @@ lib/
 ## 👨‍💻 Developed By
 
 Mostafa Qwider
+
