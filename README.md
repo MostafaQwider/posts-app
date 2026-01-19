@@ -45,13 +45,9 @@ lib/
 └── main.dart
 ```
 ## 🖼 Screenshots
-![Screenshot_٢٠٢٦٠١١٩-٠٧٠٩٥٤](https://github.com/user-attachments/assets/1a3ccc4f-0f56-4194-a220-504b842dae12)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٤٢٠](https://github.com/user-attachments/assets/bf988174-e94f-4fd5-9fc9-22d6a2be3cd8)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٤٣٨](https://github.com/user-attachments/assets/3a06b2e0-1d1b-440b-99ae-3e3bf1c4f75e)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٤٤٢](https://github.com/user-attachments/assets/676f4c20-48a4-4810-89ac-abc55c8643e8)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٨١٢](https://github.com/user-attachments/assets/2ee0f759-3994-4019-a2fa-b9c358731a33)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٨١٨](https://github.com/user-attachments/assets/83e98c3e-5b73-4ad1-8c59-429174bd8040)
-![Screenshot_٢٠٢٦٠١١٩-٠٧١٨٤٢](https://github.com/user-attachments/assets/92dbbb9b-6d31-416d-b080-22f307664eca)
+<img width="677" height="347" alt="Screenshot 2026-01-19 064230" src="https://github.com/user-attachments/assets/000f3681-12ec-429d-b138-8e06cdd45bfe" />
+
+![Uploading Screenshot 2026-01-19 064354.png…]()
 
 
 ## 🔧 Setup & Installation
@@ -69,4 +65,5 @@ lib/
 ## 👨‍💻 Developed By
 
 Mostafa Qwider
+
 
