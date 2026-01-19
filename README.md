@@ -1,42 +1,30 @@
-# Posts App 📱
+# Posts App
 
-A robust Flutter application for sharing posts and comments, built with **Clean Architecture** and **Firebase**.
+A robust Flutter application for sharing posts and comments, built with Clean Architecture and Firebase.
 
-## 🚀 Features
+## Features
 
-- **Posts Management**:
-  - View all posts in a real-time feed.
-  - Create new posts with titles and content.
-  - **Edit** existing posts.
-  - Delete posts.
-- **Comments System**:
-  - View comments on each post.
-  - Add new comments to engage with content.
-- **Real-time Updates**: changes are reflected instantly using Firestore streams.
+- Responsive Design: Works seamlessly on Mobile, Tablet, and Web.
+- Posts Management: Create, Read, Update, and Delete posts.
+- Comments System: Engage with content through comments.
 
-## 🛠️ Tech Stack & Architecture
 
-This project follows the **Clean Architecture** principles to ensure separation of concerns, scalability, and testability.
+## Technologies Used
 
-### Layers:
-1.  **Domain Layer**: Contains Entities, Use Cases, and Repository Interfaces. Pure Dart code, no Flutter dependencies.
-2.  **Data Layer**: Handles data retrieval from Firestore, Model mapping, and Repository Implementations.
-3.  **Presentation Layer**: UI Components, Pages, and State Management using `Provider`.
-
-### Key Technologies:
-- **Flutter** & **Dart**
-- **Firebase Firestore**
-- **Provider** (State Management)
-- **GetIt** (Dependency Injection)
-- **Equatable**
-- **Intl** & **Timeago** (Date formatting)
+- Flutter: UI Toolkit.
+- Dart: Programming Language.
+- Firebase Firestore: Backend Database.
+- Provider: State Management.
+- GetIt: Dependency Injection.
+- Dartz: Functional Programming.
 
 ## 📂 Project Structure
+
 ```
 lib/
 ├── core/
 │   ├── di/                 # Dependency Injection setup
-│   └── errors/             # Custom Failures and Exceptions
+│   └── Services/           # Services
 ├── features/
 │   └── posts/
 │       ├── data/           # Data Source, Models, Repositories Impl
@@ -44,28 +32,33 @@ lib/
 │       └── presentation/   # Pages, Widgets, Providers
 └── main.dart
 ```
-## 🖼 Screenshots
-<img width="677" height="347" alt="Screenshot 2026-01-19 064230" src="https://github.com/user-attachments/assets/000f3681-12ec-429d-b138-8e06cdd45bfe" />
+## Clean Architecture
 
-<img width="676" height="346" alt="Screenshot 2026-01-19 064354" src="https://github.com/user-attachments/assets/2e6a583f-1e23-44b9-bec3-89cd21ccc3f8" />
+This project adopts Clean Architecture to ensure separation of concerns and maintainability. It divides the application into three distinct layers:
 
+1. Presentation Layer:
+   Handles the UI and user interactions. It communicates with the Domain layer to execute business logic and observes state changes. We use `Provider` here to manage state.
 
+2. Domain Layer:
+   The core of the application. It is completely independent of other layers.
+   - Entities: Business objects (e.g., Post, Comment).
+   - Use Cases: Encapsulate specific business rules (e.g., `AddPostUseCase`).
+   - Repository Interfaces: Define the contract for data operations without knowing the implementation details.
 
-## 🔧 Setup & Installation
+3. Data Layer:
+   Responsible for data retrieval and storage.
+   - Models: Data transfer objects that extend Entities (handle JSON/Firestore serialization).
+   - Data Sources: Interact with external agencies (Firebase, Local Storage).
+   - Repositories: Implement the interfaces defined in the Domain layer, coordinating data from sources.
 
-1.  **Clone the repository**:
-```    git clone https://github.com/your-username/posts_app.git ```
-2.  **Install dependencies**:
-    ```flutter pub get```
-3.  **Firebase Configuration**:
-    -   Ensure you have a Firebase project set up.
-    -   Add your `google-services.json` (Android) / `GoogleService-Info.plist` (iOS) to the respective folders.
-4.  **Run the app**:
- ```   flutter run```
+## Why Clean Architecture?
 
-## 👨‍💻 Developed By
+We chose Clean Architecture to build a scalable and maintainable application with clear separation of concerns.
 
-Mostafa Qwider
-
-
+Key benefits:
+- Separation of concerns between UI, business logic, and data layers.
+- Easier testing of business logic without relying on UI or external services.
+- Flexibility to change the UI, database, or frameworks without impacting core logic.
+- Better scalability as the application grows.
+- Improved maintainability and easier collaboration for developers.
 
