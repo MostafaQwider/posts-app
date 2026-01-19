@@ -158,112 +158,120 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      padding: EdgeInsets.only(
-        top: 15,
-        left: 20,
-        right: 20,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 20,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 600),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          padding: EdgeInsets.only(
+            top: 15,
+            left: 20,
+            right: 20,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.isPost
-                          ? (widget.postToEdit != null
-                              ? "Update Post"
-                              : "Add Post")
-                          : "Add Comment",
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.isPost
+                              ? (widget.postToEdit != null
+                                  ? "Update Post"
+                                  : "Add Post")
+                              : "Add Comment",
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          widget.isPost
+                              ? (widget.postToEdit != null
+                                  ? "Update your story"
+                                  : "Share your story")
+                              : "Share your thoughts",
+                          style:
+                              TextStyle(fontSize: 14, color: Colors.grey[600]),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.close, color: Colors.grey, size: 20),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 25),
+              _buildLabel("Name"),
+              _buildTextField(_nameController, "Your name"),
+              const SizedBox(height: 15),
+              _buildLabel(widget.isPost ? "Title" : "Email"),
+              _buildTextField(
+                widget.isPost ? _titleController : _emailController,
+                widget.isPost ? "Post title" : "Email address",
+              ),
+              const SizedBox(height: 15),
+              _buildLabel(widget.isPost ? "Description" : "Comment"),
+              _buildTextField(
+                _contentController,
+                "Type here...",
+                maxLines: 3,
+                hasBorder: true,
+              ),
+              const SizedBox(height: 25),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () => Navigator.pop(context),
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        side: BorderSide(color: Colors.grey.shade300),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
+                      child: const Text("Cancel",
+                          style: TextStyle(color: Colors.black)),
                     ),
-                    Text(
-                      widget.isPost
+                  ),
+                  const SizedBox(width: 15),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: _handleSubmit,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        foregroundColor: Colors.white,
+                        elevation: 0,
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(widget.isPost
                           ? (widget.postToEdit != null
-                              ? "Update your story"
-                              : "Share your story")
-                          : "Share your thoughts",
-                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                              ? "Save Changes"
+                              : "Publish")
+                          : "Comment"),
                     ),
-                  ],
-                ),
-              ),
-              IconButton(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(Icons.close, color: Colors.grey, size: 20),
+                  ),
+                ],
               ),
             ],
           ),
-          const SizedBox(height: 25),
-          _buildLabel("Name"),
-          _buildTextField(_nameController, "Your name"),
-          const SizedBox(height: 15),
-          _buildLabel(widget.isPost ? "Title" : "Email"),
-          _buildTextField(
-            widget.isPost ? _titleController : _emailController,
-            widget.isPost ? "Post title" : "Email address",
-          ),
-          const SizedBox(height: 15),
-          _buildLabel(widget.isPost ? "Description" : "Comment"),
-          _buildTextField(
-            _contentController,
-            "Type here...",
-            maxLines: 3,
-            hasBorder: true,
-          ),
-          const SizedBox(height: 25),
-          Row(
-            children: [
-              Expanded(
-                child: OutlinedButton(
-                  onPressed: () => Navigator.pop(context),
-                  style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    side: BorderSide(color: Colors.grey.shade300),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Text("Cancel",
-                      style: TextStyle(color: Colors.black)),
-                ),
-              ),
-              const SizedBox(width: 15),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: _handleSubmit,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).primaryColor,
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Text(widget.isPost
-                      ? (widget.postToEdit != null ? "Save Changes" : "Publish")
-                      : "Comment"),
-                ),
-              ),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }

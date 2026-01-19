@@ -50,6 +50,7 @@ This project adopts Clean Architecture to ensure separation of concerns and main
    - Models: Data transfer objects that extend Entities (handle JSON/Firestore serialization).
    - Data Sources: Interact with external agencies (Firebase, Local Storage).
    - Repositories: Implement the interfaces defined in the Domain layer, coordinating data from sources.
+<<<<<<< HEAD
 
 ## Why Clean Architecture?
 
@@ -61,4 +62,16 @@ Key benefits:
 - Flexibility to change the UI, database, or frameworks without impacting core logic.
 - Better scalability as the application grows.
 - Improved maintainability and easier collaboration for developers.
+=======
 
+## Why Clean Architecture?
+
+We chose Clean Architecture to build a scalable and maintainable application with clear separation of concerns.
+>>>>>>> cc13285 (Add responsive design)
+
+Key benefits:
+- Separation of concerns between UI, business logic, and data layers.
+- Easier testing of business logic without relying on UI or external services.
+- Flexibility to change the UI, database, or frameworks without impacting core logic.
+- Better scalability as the application grows.
+- Improved maintainability and easier collaboration for developers.

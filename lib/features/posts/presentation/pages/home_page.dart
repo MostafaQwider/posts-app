@@ -144,29 +144,80 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      itemCount: state.posts.length,
-      itemBuilder: (context, index) {
-        final post = state.posts[index];
-        return PostCard(
-          borderColor:
-              index != 0 ? Colors.grey[350]! : Theme.of(context).primaryColor,
-          commentsCount: state.getPostComments(post.id).length,
-          post: post,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => PostDetailsPage(
-                  post: post,
-                  postComments: state.getPostComments(post.id),
-                ),
-              ),
-            );
-          },
-        );
-      },
+    return SafeArea(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 900),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final width = constraints.maxWidth;
+              if (width > 680) {
+                // Tablet/Web: GridView
+                int crossAxisCount = width > 900 ? 3 : 2;
+                return GridView.builder(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: 1.5, // Adjust aspect ratio as needed
+                  ),
+                  itemCount: state.posts.length,
+                  itemBuilder: (context, index) {
+                    final post = state.posts[index];
+                    return PostCard(
+                      borderColor: index != 0
+                          ? Colors.grey[350]!
+                          : Theme.of(context).primaryColor,
+                      commentsCount: state.getPostComments(post.id).length,
+                      post: post,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PostDetailsPage(
+                              post: post,
+                              postComments: state.getPostComments(post.id),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              } else {
+                // Mobile: ListView
+                return ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  itemCount: state.posts.length,
+                  itemBuilder: (context, index) {
+                    final post = state.posts[index];
+                    return PostCard(
+                      borderColor: index != 0
+                          ? Colors.grey[350]!
+                          : Theme.of(context).primaryColor,
+                      commentsCount: state.getPostComments(post.id).length,
+                      post: post,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PostDetailsPage(
+                              post: post,
+                              postComments: state.getPostComments(post.id),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              }
+            },
+          ),
+        ),
+      ),
     );
   }
 }
