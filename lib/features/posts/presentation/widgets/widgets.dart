@@ -105,14 +105,6 @@ class CommentTile extends StatelessWidget {
   }
 }
 
-// Assuming PostEntity is defined elsewhere, e.g.:
-// class PostEntity {
-//   final String? authorName;
-//   final String? title;
-//   final String? body;
-//   PostEntity({this.authorName, this.title, this.body});
-// }
-
 class AddBottomSheet extends StatefulWidget {
   final bool isPost; // true للمنشور، false للتعليق
   final Function(Map<String, String>) onSubmit;
